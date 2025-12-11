@@ -6,7 +6,7 @@
 /*   By: rgerman- <rgerman-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 18:49:34 by rgerman-          #+#    #+#             */
-/*   Updated: 2025/12/10 02:06:30 by rgerman-         ###   ########.fr       */
+/*   Updated: 2025/12/11 15:59:58 by rgerman-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void				ft_putnbr_fd(int n, int fd);
 typedef struct s_list
 {
 	void			*content;
-	int				cost;
 	struct s_list	*next;
 }					t_list;
 

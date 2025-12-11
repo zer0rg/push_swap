@@ -6,7 +6,7 @@
 /*   By: rgerman- <rgerman-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 14:29:41 by rgerman-          #+#    #+#             */
-/*   Updated: 2025/12/10 19:59:53 by rgerman-         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:00:13 by rgerman-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ void		rotate_b_to_top(t_stacks *stacks, int pos_b);
 */
 bool		init_sorting(t_stacks *stacks);
 bool		handle_small_cases(t_stacks *stacks);
+t_cost		find_cheapest_move(t_stacks *stacks);
+void		execute_rotations(t_stacks *stacks, t_cost cost);
 
 
 /*
@@ -85,6 +87,14 @@ bool		handle_small_cases(t_stacks *stacks);
 */
 t_stacks	*init_stacks(char **args);
 t_max_n		*max_on_stack(t_list *stack);
-void		print_stack(t_list *stack);
+int			find_target(t_list *a_elem, t_list *b);
+int			find_pos_by_value(t_list *stack, int value);
+
+/*
+	Free
+*/
+void		free_stacks(t_stacks *stacks);
+void		free_args(char **args);
+
 
 #endif

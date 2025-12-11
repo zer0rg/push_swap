@@ -29,7 +29,5 @@ while [ ${#used[@]} -lt $count ]; do
     fi
 done
 
-cc *.c src/*.c src/operations/*.c src/utils/*.c libft/*.c -o push_swap
-cc checker/*.c src/*.c src/operations/*.c src/utils/*.c libft/*.c get_next_line/*.c -o check_push
 
-./push_swap $numbers | ./check_push $numbers
+./push_swap $numbers

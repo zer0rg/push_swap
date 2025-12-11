@@ -6,27 +6,57 @@
 /*   By: rgerman- <rgerman-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 18:30:49 by rgerman-          #+#    #+#             */
-/*   Updated: 2025/12/10 17:35:37 by rgerman-         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:00:13 by rgerman-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/push_swap.h"
 
-void	print_stack(t_list *stack)
-{ 
-	char	*num;
+// Encuentra la posición de un valor en un stack
+int	find_pos_by_value(t_list *stack, int value)
+{
+	int	pos;
 
-	write(1, "\n", 1);
-	while (stack != NULL)
+	pos = 0;
+	while (stack)
 	{
-		num = ft_itoa(*(int *)stack->content);
-		ft_putstr_fd(num, 1);
-		write(1, " ", 1);
+		if (*(int *)stack->content == value)
+			return (pos);
 		stack = stack->next;
+		pos++;
 	}
-	write(1, "\n", 1);
+	return (-1);
 }
+// Encuentra el target de un elemento de A en B
+int	find_target(t_list *a_elem, t_list *b)
+{
+	int	a_val;
+	int	best_target;
+	int	target;
 
+	a_val = *(int *)a_elem->content;
+	best_target = INT_MIN;
+	while (b)
+	{
+		target = *(int *)b->content;
+		if (target < a_val && target > best_target)
+			best_target = target;
+		b = b->next;
+	}
+	if (best_target == INT_MIN)
+	{
+		b = a_elem;
+		while (b)
+		{
+			target = *(int *)b->content;
+			if (target > best_target)
+				best_target = target;
+			b = b->next;
+		}
+	}
+	return (best_target);
+}
+// Encuentra el elemento maximo en el stack
 t_max_n	*max_on_stack(t_list *stack)
 {
 	t_max_n	*max;

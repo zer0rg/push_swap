@@ -6,7 +6,7 @@
 /*   By: rgerman- <rgerman-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 18:07:02 by rgerman-          #+#    #+#             */
-/*   Updated: 2025/12/10 20:53:45 by rgerman-         ###   ########.fr       */
+/*   Updated: 2025/12/11 16:49:47 by rgerman-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,30 +61,33 @@ void	check_sort(t_stacks *stacks)
 	write(1, "OK\n", 3);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	char	*line;
+	char		*line;
 	t_stacks	*stacks;
-	char	**args;
-	if (argc == 2)
-	{
-		write(1, "Error\n", 7);
-		return (1);
-	}
-	if (argc == 2)
+	char		**args;
+	int			is_split;
+
+	if (argc < 2)
+		return (0);
+	is_split = (argc == 2);
+	if (is_split)
 		args = ft_split(argv[1], ' ');
 	else
 		args = argv + 1;
 	stacks = init_stacks(args);
+	if (is_split)
+		free_args(args);
 	if (!stacks)
 		return (1);
 	line = get_next_line(0);
-	while(line != NULL)
+	while (line != NULL)
 	{
 		exec_step(line, stacks);
 		free(line);
 		line = get_next_line(0);
 	}
 	check_sort(stacks);
+	free_stacks(stacks);
 	return (0);
 }
