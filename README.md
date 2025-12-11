@@ -15,7 +15,7 @@ The project consists of two programs:
 You have two stacks (A and B) and a set of instructions to manipulate them:
 
 | Operation | Description |
-|-----------|-------------|
+|-----------|-------------|https://github.com/zer0rg/push_swap
 | `sa` | Swap the first 2 elements at the top of stack A |
 | `sb` | Swap the first 2 elements at the top of stack B |
 | `ss` | `sa` and `sb` at the same time |
@@ -135,7 +135,7 @@ make re
 
 ### Documentation & References
 
-- [Push_swap Article - Medium](hhttps://medium.com/@ayogun/push-swap-c1f5d2d41e97)
+- [Push_swap Article - Medium](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
 - [Visualizer for Push_swap](https://github.com/o-reo/push_swap_visualizer)
 ### AI Usage
 
