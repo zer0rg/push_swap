@@ -6,13 +6,12 @@
 /*   By: rgerman- <rgerman-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 18:30:49 by rgerman-          #+#    #+#             */
-/*   Updated: 2025/12/11 17:00:13 by rgerman-         ###   ########.fr       */
+/*   Updated: 2025/12/12 20:01:20 by rgerman-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/push_swap.h"
 
-// Encuentra la posición de un valor en un stack
 int	find_pos_by_value(t_list *stack, int value)
 {
 	int	pos;
@@ -27,7 +26,31 @@ int	find_pos_by_value(t_list *stack, int value)
 	}
 	return (-1);
 }
-// Encuentra el target de un elemento de A en B
+
+int	find_min_pos(t_stacks *stacks)
+{
+	t_list	*tmp;
+	int		min_pos;
+	int		i;
+	int		min_val;
+
+	min_pos = 0;
+	tmp = stacks->a;
+	i = 0;
+	min_val = *(int *)stacks->a->content;
+	while (tmp)
+	{
+		if (*(int *)tmp->content < min_val)
+		{
+			min_val = *(int *)tmp->content;
+			min_pos = i;
+		}
+		tmp = tmp->next;
+		i++;
+	}
+	return (min_pos);
+}
+
 int	find_target(t_list *a_elem, t_list *b)
 {
 	int	a_val;
@@ -56,7 +79,7 @@ int	find_target(t_list *a_elem, t_list *b)
 	}
 	return (best_target);
 }
-// Encuentra el elemento maximo en el stack
+
 t_max_n	*max_on_stack(t_list *stack)
 {
 	t_max_n	*max;
@@ -80,22 +103,3 @@ t_max_n	*max_on_stack(t_list *stack)
 	return (max);
 }
 
-t_stacks	*init_stacks(char **args)
-{
-	t_stacks	*stacks;
-	t_max_n		*max;
-
-	stacks = malloc(sizeof(t_stacks));
-	if (!stacks)
-		return (NULL);
-	stacks->a = args_to_list(args);
-	stacks->size_a = ft_lstsize(stacks->a);
-	stacks->b = NULL;
-	stacks->size_b = 0;
-	stacks->moves_count = 0;
-	stacks->fd = 1;
-	max = max_on_stack(stacks->a);
-	stacks->max_n = max->max;
-	free(max);
-	return (stacks);
-}

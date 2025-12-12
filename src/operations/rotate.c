@@ -6,7 +6,7 @@
 /*   By: rgerman- <rgerman-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 12:45:21 by rgerman-          #+#    #+#             */
-/*   Updated: 2025/12/10 14:16:41 by rgerman-         ###   ########.fr       */
+/*   Updated: 2025/12/12 20:51:56 by rgerman-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ bool	rotate_a(t_stacks *stacks, int write_flag)
 	ft_lstadd_back(&stacks->a, first);
 	if (write_flag)
 	{
-		write(stacks->fd, "ra\n", 3);
+		write(1, "ra\n", 3);
 		stacks->moves_count += 1;
 	}
 	return (true);
@@ -43,7 +43,7 @@ bool	rotate_b(t_stacks *stacks, int write_flag)
 	if (write_flag)
 	{
 		stacks->moves_count += 1;
-		write(stacks->fd, "rb\n", 3);
+		write(1, "rb\n", 3);
 	}
 	return (true);
 }
@@ -53,7 +53,7 @@ bool	rotate_a_b(t_stacks *stacks)
 	rotate_a(stacks, 0);
 	rotate_b(stacks, 0);
 	stacks->moves_count += 1;
-	write (1, "rr\n", 3);
+	write(1, "rr\n", 3);
 	return (true);
 }
 

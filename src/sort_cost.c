@@ -6,14 +6,12 @@
 /*   By: rgerman- <rgerman-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:00:00 by rgerman-          #+#    #+#             */
-/*   Updated: 2025/12/11 17:00:13 by rgerman-         ###   ########.fr       */
+/*   Updated: 2025/12/11 18:03:17 by rgerman-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-
-// Calcula el costo de mover un elemento de A a su target en B
 static void	calc_individual_costs(t_cost *cost, t_stacks *stacks, int pos_a)
 {
 	if (pos_a <= (int)stacks->size_a / 2)
@@ -58,7 +56,6 @@ t_cost	calc_cost(t_stacks *stacks, int pos_a, int target_b)
 	return (cost);
 }
 
-// Encuentra el movimiento más barato en A
 t_cost	find_cheapest_move(t_stacks *stacks)
 {
 	t_list	*tmp_a;

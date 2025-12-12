@@ -6,7 +6,7 @@
 /*   By: rgerman- <rgerman-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 12:15:17 by rgerman-          #+#    #+#             */
-/*   Updated: 2025/11/21 19:14:46 by rgerman-         ###   ########.fr       */
+/*   Updated: 2025/12/12 20:51:56 by rgerman-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ bool	swap_a(t_stacks *stacks)
 	stacks->a->content = stacks->a->next->content;
 	stacks->a->next->content = tmp;
 	stacks->moves_count += 1;
-	write(stacks->fd, "sa\n", 3);
+	write(1, "sa\n", 3);
 	return (true);
 }
 
@@ -36,7 +36,7 @@ bool	swap_b(t_stacks *stacks)
 	stacks->b->content = stacks->b->next->content;
 	stacks->b->next->content = tmp;
 	stacks->moves_count += 1;
-	write(stacks->fd, "sb\n", 3);
+	write(1, "sb\n", 3);
 	return (true);
 }
 

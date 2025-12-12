@@ -5,7 +5,7 @@ LIBFT_DIR	= libft
 LIBFT		= $(LIBFT_DIR)/libft.a
 
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -g3
 INCLUDE		= -I./headers -I./libft
 
 # Push_swap sources
@@ -20,6 +20,7 @@ SRCS		= main.c \
 			src/operations/reverse_rotate.c \
 			src/operations/swap.c \
 			src/utils/free.c \
+			src/utils/checks.c \
 			src/utils/stack.c
 
 # Shared sources (operations and utils used by push_swap and checker)

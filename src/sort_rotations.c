@@ -6,7 +6,7 @@
 /*   By: rgerman- <rgerman-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:00:00 by rgerman-          #+#    #+#             */
-/*   Updated: 2025/12/11 16:06:58 by rgerman-         ###   ########.fr       */
+/*   Updated: 2025/12/11 18:00:48 by rgerman-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ static void	execute_double_rotations(t_stacks *stacks, int *n_rot_a,
 }
 
 // Ejecuta rotaciones restantes de A y B
-static void	execute_single_rotations(t_stacks *stacks, int n_rot_a,
-		int n_rot_b, int *directions)
+static void	execute_single_rotations(t_stacks *stacks, int n_rot_a, int n_rot_b,
+		int *directions)
 {
 	while (n_rot_a-- > 0)
 	{

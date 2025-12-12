@@ -6,29 +6,29 @@
 /*   By: rgerman- <rgerman-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 14:29:41 by rgerman-          #+#    #+#             */
-/*   Updated: 2025/12/11 17:00:13 by rgerman-         ###   ########.fr       */
+/*   Updated: 2025/12/12 22:08:57 by rgerman-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/libft.h"
 # include "../get_next_line/get_next_line.h"
+# include "../libft/libft.h"
 # include <fcntl.h>
+# include <limits.h>
 # include <stdbool.h>
 # include <unistd.h>
-# include <limits.h>
 
 typedef struct s_cost
 {
-	int	cost_a;
-	int	cost_b;
-	int	total;
-	int	pos_a;
-	int	pos_b;
-	int	target;
-}	t_cost;
+	int		cost_a;
+	int		cost_b;
+	int		total;
+	int		pos_a;
+	int		pos_b;
+	int		target;
+}			t_cost;
 
 typedef struct s_maxn
 {
@@ -36,25 +36,21 @@ typedef struct s_maxn
 	int		pos;
 }			t_max_n;
 
-
 typedef struct s_stacks
 {
 	t_list	*a;
 	t_list	*b;
-	int		max_n;
 	size_t	size_a;
 	size_t	size_b;
 	size_t	moves_count;
-	int		fd;
 }			t_stacks;
-
 
 /*
 	Parser
 */
-t_list		*args_to_list(char **args);
-
-
+char		**set_args(char **argv, int n);
+int			validate_args(char **args);
+t_stacks	*init_stacks(char **args);
 /*
 	Operations
 */
@@ -72,6 +68,11 @@ bool		reverse_rot_a_b(t_stacks *stacks);
 void		rotate_a_to_top(t_stacks *stacks, int pos_a);
 void		rotate_b_to_top(t_stacks *stacks, int pos_b);
 
+/*
+	Checks
+*/
+int			check_sort(t_stacks *stacks);
+int			check_duplicates(t_list *node, long n);
 
 /*
 	Sorting
@@ -81,20 +82,18 @@ bool		handle_small_cases(t_stacks *stacks);
 t_cost		find_cheapest_move(t_stacks *stacks);
 void		execute_rotations(t_stacks *stacks, t_cost cost);
 
-
 /*
 	Stack Utils
 */
-t_stacks	*init_stacks(char **args);
 t_max_n		*max_on_stack(t_list *stack);
 int			find_target(t_list *a_elem, t_list *b);
 int			find_pos_by_value(t_list *stack, int value);
+int			find_min_pos(t_stacks *stacks);
 
 /*
 	Free
 */
 void		free_stacks(t_stacks *stacks);
 void		free_args(char **args);
-
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rgerman- <rgerman-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 11:42:05 by rgerman-          #+#    #+#             */
-/*   Updated: 2025/12/10 20:27:07 by rgerman-         ###   ########.fr       */
+/*   Updated: 2025/12/11 18:01:37 by rgerman-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,13 @@
 #  define BUFFER_SIZE 42
 # endif
 
-
+# include "../libft/libft.h"
+# include <fcntl.h>
 # include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <sys/stat.h>
 # include <unistd.h>
-#include <fcntl.h>
-#include <sys/stat.h>
-#include "../libft/libft.h"
 
 typedef struct s_buff
 {
@@ -32,6 +31,5 @@ typedef struct s_buff
 }			t_buff;
 
 char		*get_next_line(int fd);
-
 
 #endif

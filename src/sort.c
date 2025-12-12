@@ -6,36 +6,13 @@
 /*   By: rgerman- <rgerman-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 15:32:18 by rgerman-          #+#    #+#             */
-/*   Updated: 2025/12/11 16:07:36 by rgerman-         ###   ########.fr       */
+/*   Updated: 2025/12/11 19:31:03 by rgerman-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-// Encuentra la posición del mínimo en A
-static int	find_min_pos(t_stacks *stacks)
-{
-	t_list	*tmp;
-	int		min_pos;
-	int		i;
-	int		min_val;
 
-	min_pos = 0;
-	tmp = stacks->a;
-	i = 0;
-	min_val = *(int *)stacks->a->content;
-	while (tmp)
-	{
-		if (*(int *)tmp->content < min_val)
-		{
-			min_val = *(int *)tmp->content;
-			min_pos = i;
-		}
-		tmp = tmp->next;
-		i++;
-	}
-	return (min_pos);
-}
 
 // Rota A para poner el mínimo al top
 static void	final_rotate_a(t_stacks *stacks)

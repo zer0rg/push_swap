@@ -6,7 +6,7 @@
 /*   By: rgerman- <rgerman-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 12:27:07 by rgerman-          #+#    #+#             */
-/*   Updated: 2025/12/10 01:42:38 by rgerman-         ###   ########.fr       */
+/*   Updated: 2025/12/12 20:51:56 by rgerman-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ bool	push_to_a(t_stacks *stacks)
 	stacks->size_a += 1;
 	stacks->size_b -= 1;
 	stacks->moves_count += 1;
-	write(stacks->fd, "pa\n", 3);
+	write(1, "pa\n", 3);
 	return (true);
 }
 
@@ -42,6 +42,6 @@ bool	push_to_b(t_stacks *stacks)
 	stacks->size_a -= 1;
 	stacks->size_b += 1;
 	stacks->moves_count += 1;
-	write(stacks->fd, "pb\n", 3);
+	write(1, "pb\n", 3);
 	return (true);
 }

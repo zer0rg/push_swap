@@ -6,7 +6,7 @@
 /*   By: rgerman- <rgerman-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 21:38:13 by rgerman-          #+#    #+#             */
-/*   Updated: 2025/10/05 22:06:27 by rgerman-         ###   ########.fr       */
+/*   Updated: 2025/12/12 20:57:58 by rgerman-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	while (*s)
 	{
-		write(fd, s, 1);
+		write(fd , s, 1);
 		s++;
 	}
 	return ;

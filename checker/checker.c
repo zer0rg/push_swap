@@ -6,7 +6,7 @@
 /*   By: rgerman- <rgerman-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 18:07:02 by rgerman-          #+#    #+#             */
-/*   Updated: 2025/12/11 16:49:47 by rgerman-         ###   ########.fr       */
+/*   Updated: 2025/12/12 22:19:33 by rgerman-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,28 +39,6 @@ static int	exec_step(char *step, t_stacks *stacks)
 	return (0);
 }
 
-void	check_sort(t_stacks *stacks)
-{
-	t_list	*node;
-
-	if (stacks->size_b > 0)
-	{
-		write(1, "KO\n", 3);
-		return ;
-	}
-	node = stacks->a;
-	while (node && node->next)
-	{
-		if (*(int *)node->content > *(int *)node->next->content)
-		{
-			write(1, "KO\n", 3);
-			return ;
-		}
-		node = node->next;
-	}
-	write(1, "OK\n", 3);
-}
-
 int	main(int argc, char **argv)
 {
 	char		*line;
@@ -71,13 +49,9 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	is_split = (argc == 2);
-	if (is_split)
-		args = ft_split(argv[1], ' ');
-	else
-		args = argv + 1;
-	stacks = init_stacks(args);
-	if (is_split)
-		free_args(args);
+	args = set_args(argv, argc == 2);
+	stacks = NULL;
+
 	if (!stacks)
 		return (1);
 	line = get_next_line(0);
@@ -88,6 +62,9 @@ int	main(int argc, char **argv)
 		line = get_next_line(0);
 	}
 	check_sort(stacks);
-	free_stacks(stacks);
-	return (0);
+	if (argc == 2)
+		free_args(args);
+	return (free_stacks(stacks), 0);
 }
+
+

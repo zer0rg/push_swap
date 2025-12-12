@@ -6,7 +6,7 @@
 /*   By: rgerman- <rgerman-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 13:22:08 by rgerman-          #+#    #+#             */
-/*   Updated: 2025/12/10 17:46:54 by rgerman-         ###   ########.fr       */
+/*   Updated: 2025/12/12 20:51:56 by rgerman-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ bool	reverse_rot_a(t_stacks *stacks, int write_flag)
 	if (write_flag)
 	{
 		stacks->moves_count += 1;
-		write(stacks->fd, "rra\n", 4);
+		write(1, "rra\n", 4);
 	}
 	return (true);
 }
@@ -50,7 +50,7 @@ bool	reverse_rot_b(t_stacks *stacks, int write_flag)
 	stacks->b = last;
 	if (write_flag)
 	{
-		write(stacks->fd, "rrb\n", 4);
+		write(1, "rrb\n", 4);
 		stacks->moves_count += 1;
 	}
 	return (true);
@@ -60,7 +60,7 @@ bool	reverse_rot_a_b(t_stacks *stacks)
 {
 	reverse_rot_a(stacks, 0);
 	reverse_rot_b(stacks, 0);
-	stacks->moves_count +=1;
+	stacks->moves_count += 1;
 	write(1, "rrr\n", 4);
 	return (true);
 }
